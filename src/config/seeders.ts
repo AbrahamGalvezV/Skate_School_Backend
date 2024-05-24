@@ -3,6 +3,10 @@ export const SeederConfig = {
     CLIENTS: 27,
     ARTISTS: 4, 
     APPOINTMENTS: 20,
-    SERVICES: 5,
-
+    SURF_BEGGINER: 1,
+    SURF_ADVANCE: 1,
+    SKATE_BEGGINER: 1,
+    SKATE_ADVANCE: 1,
+    SURFSKATE_BEGGINER: 1,
+    SURFSKATE_ADVANCE: 1,
   };

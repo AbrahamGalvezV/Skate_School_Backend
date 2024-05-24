@@ -16,6 +16,9 @@ router.get('/artist',auth,authorize(["artist"]), appointmentController.getByLoge
 // Ver todas las citas
 router.get('/',auth,authorize(["admin"]), appointmentController.getAll);
 
+// Ver citas pendientes 
+router.get('/pending',auth,authorize(["admin"]), appointmentController.getAllPending);
+
 // Obtener cita by id
 router.get("/:id",auth,authorize(["artist", "admin", 'client']), appointmentController.getById);
 

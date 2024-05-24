@@ -37,6 +37,7 @@ export const appointmentController = {
             serviceName: true,
             description: true,
           },
+          status:true,
         },
         where: {
           clientId: userId,
@@ -77,6 +78,7 @@ export const appointmentController = {
             client: true,
             artist: true,
             service: true,
+            
           },
           select: {
             id: true,
@@ -98,9 +100,13 @@ export const appointmentController = {
               serviceName: true,
               description: true,
             },
+            status:true,
           },
           where: {
             artistId: userId,
+            status: 'accepted',
+            
+            
           },
           skip: (page - 1) * limit, // muestra los users de 10 en 10
           take: limit,
@@ -132,12 +138,56 @@ export const appointmentController = {
       const limit = Number(req.query.limit) || 250;
 
       const [appointments, totalAppointments] = await Appointment.findAndCount({
+        relations: { artist: true,  },                                        // Nos trae todos los datos de artist
+        where: { status: 'accepted' },                                        // Muestra el estado confirmado de la cita
         select: {
           id: true,
           appointmentDate: true,
           clientId: true,
           serviceId: true,
           artistId: true,
+          status: true,
+          artist: { firstName: true, lastName: true }                        // Nos trae todos nombre 
+        },
+        skip: (page - 1) * limit,                                             // muestra los users de 10 en 10
+        take: limit,
+      });
+
+      if (totalAppointments === 0) {
+        res.status(404).json({ message: "User not found" });
+        return;
+      }
+
+      const totalPages = Math.ceil(totalAppointments / limit);
+
+      res.status(200).json({
+        dates: appointments,
+        current_page: page,
+        per_page: limit,
+        total_pages: totalPages,
+      });
+    } catch (error) {
+      res.status(500).json({
+        message: "Something went wrong",
+      });
+    }
+  },
+
+  async getAllPending(req: Request, res: Response): Promise<void> {
+    try {
+      const page = Number(req.query.page) || 1;
+      const limit = Number(req.query.limit) || 250;
+
+
+      const [appointments, totalAppointments] = await Appointment.findAndCount({
+        where: { status: 'pending' },                                        // Muestra la cita pendiente de confirmación 
+        select: {
+          id: true,
+          appointmentDate: true,
+          clientId: true,
+          serviceId: true,
+          artistId: true,
+          status: true
         },
         skip: (page - 1) * limit,                                             // muestra los users de 10 en 10
         take: limit,
@@ -228,6 +278,7 @@ export const appointmentController = {
         clientId: clientId,
         serviceId: serviceId,
         artistId: artistId,
+        status: 'pending'
       });
 
       await Appointment.save(appointmentToCreate);
@@ -246,7 +297,7 @@ export const appointmentController = {
   async update(req: Request, res: Response): Promise<void> {
     try {
       const dateId = Number(req.params.id);
-      const { appointmentDate, clientId, serviceId, artistId } = req.body;
+      const { appointmentDate, clientId, serviceId, artistId, status } = req.body;
 
       const appointmentToUpdate = await Appointment.findOne({
         where: { id: dateId },
@@ -261,6 +312,8 @@ export const appointmentController = {
       appointmentToUpdate.clientId = clientId;
       appointmentToUpdate.serviceId = serviceId;
       appointmentToUpdate.artistId = artistId;
+      appointmentToUpdate.status = status;
+
       await Appointment.save(appointmentToUpdate);
       res.status(202).json({
         message: "Appointment has been updated",
@@ -293,4 +346,5 @@ export const appointmentController = {
       });
     }
   },
+
 };

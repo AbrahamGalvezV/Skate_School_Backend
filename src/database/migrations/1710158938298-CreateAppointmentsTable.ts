@@ -33,6 +33,14 @@ export class CreateAppointmentsTable1710158938298 implements MigrationInterface 
                 name: "artist_id",
                 type: "int",
               },
+
+              {
+                name: "status",
+                type: "varchar",
+                length: "20",
+                default: "'pending'",
+            },
+
               
              ],
              foreignKeys: [
@@ -55,7 +63,7 @@ export class CreateAppointmentsTable1710158938298 implements MigrationInterface 
             uniques: [
               new TableUnique({
                 name: "user_service_date_unique",
-                columnNames: ["client_id", "service_id",'artist_id', "appointment_date"],
+                columnNames: ["client_id", "service_id",'artist_id', "appointment_date", 'status'],
               }),
             ],
             }),
