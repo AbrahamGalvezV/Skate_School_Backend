@@ -9,4 +9,6 @@ export const SeederConfig = {
     SKATE_ADVANCE: 1,
     SURFSKATE_BEGGINER: 1,
     SURFSKATE_ADVANCE: 1,
+    IMAGE_1: 1,
+
   };

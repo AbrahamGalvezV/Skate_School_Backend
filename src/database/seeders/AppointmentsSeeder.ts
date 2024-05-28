@@ -28,8 +28,6 @@ export class AppointmentsSeeder extends Seeder {
     })
     await Appointment.save(appointments);
 
-
-
   }
 
 }

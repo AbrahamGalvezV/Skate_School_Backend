@@ -15,7 +15,7 @@ export const userController = {
       
       const user = await User.findOne({
         relations:{
-          role:true
+          role:true,
         },
         where:{
           id:userId
@@ -123,6 +123,7 @@ async getAllClients(req: Request, res: Response): Promise<void> {
         lastName:true,
         email:true,
         roleId: true,
+        background:true
 
       },
       where:{roleId: 3},

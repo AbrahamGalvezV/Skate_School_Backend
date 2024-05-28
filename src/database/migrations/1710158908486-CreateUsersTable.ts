@@ -48,6 +48,12 @@ export class CreateUsersTable1710158908486 implements MigrationInterface {
                 name: "role_id",
                 type: "int",
               },
+              {
+                name: "background",
+                type: "varchar",
+                length: "255",
+                default: "'src/assets/img/bowl.jpg'"
+              },
             ],
             foreignKeys: [
               {
