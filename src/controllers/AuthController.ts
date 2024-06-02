@@ -56,7 +56,7 @@ export const authController = {
 
       const user = await User.findOne({
         relations: { role: true },
-        select: { id: true, email: true, password: true, firstName:true, background:true, lastName:true},
+        select: { id: true, email: true, password: true, firstName:true, lastName:true},
         where: { email: email }
       });
 
@@ -76,7 +76,6 @@ export const authController = {
         userId: user.id,
         userRole: user.role.name,
         userName: user.firstName,
-        userBackround : user.background
       };
       
 // Generar token

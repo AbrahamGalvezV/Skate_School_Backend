@@ -1,12 +1,12 @@
-# API REST para la gestión de citas de una escuela de skate, surt y surf-skate
+# Back - Escuela de skate
 
 ## Objetivo 🎯
 
-Esta API está creada con el objetivo de dar soporte a la parte frontal de una escuela de skate pudiendo llevar la gestión de citas de las distintas actividades.
+Creación de una API para dar soporte a la parte frontal de una escuela de skate.
 
 ## Sobre el proyecto 📜
 
-Proyecto realizado con el objetivo de poner a prueba con un proyecto real lo aprendido en clase. He procurado crear un código limpio y fácilmente entendible.
+El Back está creado para llevar la gestión de citas de las distintas actividades de una escuela de skate. Este proyecto cuenta con una migración que permitirá al administrador modificar la imagen de fondo y los colores de los distintos elementos dentro de la página web.
 
 ## Stack 🛠️
 
@@ -41,38 +41,42 @@ Proyecto realizado con el objetivo de poner a prueba con un proyecto real lo apr
 
 ● Perfil de usuario.
 
-● Modificación de datos del perfil.
+● Modificación de datos del perfil (admin, profesor y cliente).
 
-● Creación de citas.
+● Creación de citas (admin y cliente).
 
-● Edición de citas.
+● Ver todas mis citas (profesor y cliente).
 
-● Eliminar citas.
+● Eliminar citas (admin y cliente).
 
-● Ver todas las citas que tengo como cliente.
+● Edición de cita creada (admin y cliente).
 
-● Ver todas las citas existentes conmigo (role tatuador).
+● Edición de mis citas (cliente).
 
-● Listar tatuadores.
+● Eliminar mi cita (cliente).
+
+● Ver listar de profesores (admin).
 
 ● Ver todos los clientes registrados (admin).
 
-● Creación de tatuadores (admin).
+● Creación de profesores (admin).
 
-● Ver todos los clientes.
+● Ver todos los clientes (admin).
 
-● Ver una cita en detalle.
+● Ver una cita en detalle(admin, profesir y user).
 
 ● El admin puede modificar los roles de los usuarios del sistema.
 
-● Validar la fecha de la cita.
+● Validar la fecha de la cita (admin).
 
-● Añadir tipos de intervención (tattoo / piercing / eliminación de tattoo ) a las citas.
+● Obtener modificaciones de imagen y color. (adminy, profesor, cliente y usuarios sin registrar).
+
+● Generar modificaciones de imagen y color. (adminy, profesor, cliente y usuarios sin registrar).
 
 ## Instrucciones de instalación en local 📥
 
 1. Clonar el repositorio
- `git clone`https://github.com/AbrahamGalvezV/TATTOO_STUDIO
+ `git clone`https://github.com/AbrahamGalvezV/Skate_School_Backend
 
 2. Inicializar el proyecto
 `npm init -y`
@@ -167,7 +171,7 @@ Proyecto realizado con el objetivo de poner a prueba con un proyecto real lo apr
 
 + Introducir token para la identificación.
 
-- Esta ruta puede ser usada por: admin y artist.
+- Esta ruta puede ser usada por: admin y teacher.
 
 
     ##### DETALLES DE USUARIO
@@ -176,7 +180,7 @@ Proyecto realizado con el objetivo de poner a prueba con un proyecto real lo apr
 
             + Introducir token para la identificación.
 
-- Esta ruta puede ser usada por: admin y artist.
+- Esta ruta puede ser usada por: admin y teacher.
 
 
     ##### MODIFICAR USUARIO (Se puede modificar cualquier parámetrodel usuario)
@@ -208,7 +212,7 @@ Proyecto realizado con el objetivo de poner a prueba con un proyecto real lo apr
         GET  `/api/users/7profile`
 
 
-- Esta ruta puede ser usada por: admin,  artist y client.
+- Esta ruta puede ser usada por: admin,  teacher y client.
 
 + Introducir token para la identificación.
 
@@ -219,7 +223,7 @@ Proyecto realizado con el objetivo de poner a prueba con un proyecto real lo apr
 
             body: Se incluye el o los parámetros a modificar
 
-- Esta ruta puede ser usada por: admin, artist y client.
+- Esta ruta puede ser usada por: admin, teacher y client.
 
 + Introducir token para la identificación.
 
@@ -254,7 +258,7 @@ Proyecto realizado con el objetivo de poner a prueba con un proyecto real lo apr
 
         GET  `/api/appointments/{id:}`
 
-- Esta ruta puede ser usada por: admin, artist y client.
+- Esta ruta puede ser usada por: admin, teacher y client.
 
 + Introducir token para la identificación.
 
@@ -297,7 +301,7 @@ Proyecto realizado con el objetivo de poner a prueba con un proyecto real lo apr
 
         DELETE  `/api/appointments/{id:}`
 
-- Esta ruta puede ser usada por: admin,  artist y client.
+- Esta ruta puede ser usada por: admin,  teacher y client.
 
 + Introducir token para la identificación.
 
@@ -327,21 +331,21 @@ Proyecto realizado con el objetivo de poner a prueba con un proyecto real lo apr
 
         GET  `/api/services`
 
-- Esta ruta puede ser usada por:admin, artist y user.
+- Esta ruta puede ser usada por:admin, teacher y user.
 
 
     ##### LISTA DE ARTISTAS
 
         GET  `/api/services/artists`
 
-- Esta ruta puede ser usada por:admin, artist y user.
+- Esta ruta puede ser usada por:admin, teacher y user.
 
 
     ##### DETALLES SERVICIOS
 
         GET  `/api/services/{id:}`
 
-- Esta ruta puede ser usada por:admin y artist.
+- Esta ruta puede ser usada por:admin y teacher.
 
 + Introducir token para la identificación.
 
@@ -378,6 +382,21 @@ Proyecto realizado con el objetivo de poner a prueba con un proyecto real lo apr
 
 + Introducir token para la identificación.
 
+### MODIFICATIONS
+
+   ##### OBTENER MODIFICACIONES
+
+        GET  `/api/modifications/1`
+
+- Esta ruta puede ser usada por: admin, teacher, user y usuarios sin registrar.
+
+   ##### ACTUALIZAR LAS MODIFICACIONES
+
+        PUT  `/api/modifications/update/1`
+
++ Introducir token para la identificación.
+
+- Esta ruta puede ser usada por: admin.
 
 ## Contacto
 

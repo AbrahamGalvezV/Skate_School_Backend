@@ -18,6 +18,7 @@ export class UserSeeder extends Seeder{
         adminUsers.forEach((user, i) => {
             user.role = UserRoles.ADMIN;
             user.email = `admin${i + 1}@admin.com`;
+            
 
         });
 

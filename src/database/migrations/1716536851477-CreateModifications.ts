@@ -14,16 +14,30 @@ export class CreateModifications1716536851477 implements MigrationInterface {
             generationStrategy: "increment",
           },
           {
-            name: "background_image",
+            name: "background",
             type: "varchar",
             length: "255",
-            isNullable: true,
           },
-          // {
-          //   name: "background_color",
-          //   type: "varchar",
-          //   isNullable: true,
-          // },
+          {
+            name: "backgroundColor",
+            type: "varchar",
+            length: "20",
+          },
+          {
+            name: "fontColor",
+            type: "varchar",
+            length: "20",
+          },
+          {
+            name: "fontColorText",
+            type: "varchar",
+            length: "20",
+          },
+          {
+            name: "fontColorButton",
+            type: "varchar",
+            length: "20",
+          },
         ],
       }),
       true

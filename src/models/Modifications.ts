@@ -1,4 +1,4 @@
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 //----------------------------------------------------------------
 
@@ -7,9 +7,24 @@ export class Modifications extends BaseEntity {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @Column({ name: 'background_image' })
-  background_image!: string;
+  @Column({ name: 'background' })
+  background!: string;
 
-//   @Column({ default: "default-background" })
-//   background_color!: string;
+  @Column({ name: 'backgroundColor' })
+  backgroundColor!: string;
+
+  @Column({ name: 'fontColor' })
+  fontColor!: string;
+
+  @Column({ name: 'fontColorText' })
+  fontColorText!: string;
+
+  @Column({ name: 'fontColorButton' })
+  fontColorButton!: string;
+
+
+
+
+
+
 }

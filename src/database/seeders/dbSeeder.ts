@@ -15,5 +15,7 @@ import { UserSeeder } from "./UserSeeder";
     await new AppointmentsSeeder().start();
     await new ModificationSeeder().start();
 
+    
+
 })();
 

@@ -21,8 +21,6 @@ export const auth = (req: Request, res: Response, next: NextFunction) => {
       userId: decoded.userId,
       userRole: decoded.userRole,
       userName: decoded.userName,
-      userBackround: decoded.userBackround
-
     };
 
     next();

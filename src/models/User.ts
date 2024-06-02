@@ -9,6 +9,7 @@ import {
 } from "typeorm";
 import { Role } from "./Role";
 import { Appointment } from "./Appointment";
+import { Modifications } from "./Modifications";
 
 //----------------------------------------------------------------
 
@@ -34,8 +35,9 @@ export class User extends BaseEntity {
 
   @Column({ name: "role_id" })
   roleId!: number;
-  @Column({ name: "background" })
-  background!: string;
+
+
+  
 
   // Relation: User {0,1,2,...}--{1} Role
 
@@ -47,4 +49,7 @@ export class User extends BaseEntity {
 
   @OneToMany(() => Appointment, (appointment) => appointment.client)
   appointments?: Appointment[];
+
+
+
 }
