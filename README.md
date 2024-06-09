@@ -6,7 +6,7 @@ Creación de una API para dar soporte a la parte frontal de una escuela de skate
 
 ## Sobre el proyecto 📜
 
-El Back está creado para llevar la gestión de citas de las distintas actividades de una escuela de skate. Este proyecto cuenta con una migración que permitirá al administrador modificar la imagen de fondo y los colores de los distintos elementos dentro de la página web.
+El Back está creado para llevar la gestión de citas de las distintas actividades de una escuela de skate. Este proyecto permite a cada usuario modificar la imagen de fondo y los colores de los distintos elementos dentro de la página web. Estos cambios solo los podrá ver el usuario que ha realizado las modificaciones.
 
 ## Stack 🛠️
 
@@ -69,9 +69,7 @@ El Back está creado para llevar la gestión de citas de las distintas actividad
 
 ● Validar la fecha de la cita (admin).
 
-● Obtener modificaciones de imagen y color. (adminy, profesor, cliente y usuarios sin registrar).
-
-● Generar modificaciones de imagen y color. (adminy, profesor, cliente y usuarios sin registrar).
+● Generar modificaciones de imagen y color que afectan solo la cuenta creadora de las modificaciones. (adminy, profesor, cliente).
 
 ## Instrucciones de instalación en local 📥
 
@@ -144,6 +142,7 @@ El Back está creado para llevar la gestión de citas de las distintas actividad
     "email": "Abraham.Galvez.Vives@gmail.com",
 	"password": "12345678",
 }
+
 
 ### USER
 

@@ -4,7 +4,7 @@ import { corsOptions } from "./config/cors";
 import dotenv from "dotenv";
 import apiRoutes from "./routes/api.Routes";
 import baseRoutes from "./routes/base.Routes";
-import modificationsRoutes from './routes/modifications.Routes';
+// import modificationsRoutes from './routes/modifications.Routes';
 
 // -----------------------------------------------------------------------------
 
@@ -21,11 +21,5 @@ app.use("/", baseRoutes);
 
 // Register API routes
 app.use("/api", apiRoutes);
-
-// Register modifications routes
-
-app.use('/api/modifications', modificationsRoutes);
-
-
 
 export default app;

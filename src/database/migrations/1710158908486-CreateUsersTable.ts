@@ -48,6 +48,36 @@ export class CreateUsersTable1710158908486 implements MigrationInterface {
                 name: "role_id",
                 type: "int",
               },
+              {
+                name: "background",
+                type: "varchar",
+                length: "255",
+                default: "'src/assets/img/air.jpg'",
+              },
+              {
+                name: "backgroundColor",
+                type: "varchar",
+                length: "20",
+                default: "'rgb(0, 0, 0)'",
+              },
+              {
+                name: "fontColor",
+                type: "varchar",
+                length: "20",
+                default: "'rgb(0, 198, 165)'",
+              },
+              {
+                name: "fontColorText",
+                type: "varchar",
+                length: "20",
+                default: "'rgb(246, 223, 207)'",
+              },
+              {
+                name: "fontColorButton",
+                type: "varchar",
+                length: "20",
+                default: "'rgb(0, 198, 165)'",
+              },
             ],
             foreignKeys: [
               {

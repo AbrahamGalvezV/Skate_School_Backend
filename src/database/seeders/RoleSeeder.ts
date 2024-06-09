@@ -9,8 +9,7 @@ export class RoleSeeder extends Seeder {
         const roles : Partial<Role>[] = [
             UserRoles.ADMIN,
             UserRoles.ARTIST,
-            UserRoles.CLIENT
-            
+            UserRoles.CLIENT,         
         ];
         
         await Role.save(roles);

@@ -38,7 +38,7 @@ export const userController = {
   async updateLogedUser(req: Request, res: Response) {
     try {
       const userId = req.tokenData?.userId;
-      const { firstName, lastName, email, isActive } = req.body;
+      const { firstName, lastName, email, isActive , background, backgroundColor, fontColor, fontColorText, fontColorButton } = req.body;
       const user = await User.findOne({ where: { id: userId } });
 
       if (!user) {
@@ -50,6 +50,11 @@ export const userController = {
       user.lastName = lastName;
       user.email = email;
       user.isActive = isActive;
+      user.background = background;
+      user.backgroundColor = backgroundColor;
+      user.fontColor = fontColor;
+      user.fontColorText = fontColorText;
+      user.fontColorButton = fontColorButton;
 
       await user.save();
       res.status(200).json({ message: "User updated successfully" });
@@ -255,7 +260,7 @@ export const userController = {
     try {
       const userId = Number(req.params.id); // captura el id
 
-      const { firstName, lastName, email, password, isActive, background } = req.body; // separacion de pasword y rol
+      const { firstName, lastName, email, password, isActive, background, backgroundColor, fontColor, fontColorText, fontColorButton } = req.body; // separacion de pasword y rol
 
       const userToUpdate = await User.findOne({
         // encuentra el usuario ataves del id
@@ -272,6 +277,7 @@ export const userController = {
       userToUpdate.email = email;
       userToUpdate.password = password;
       userToUpdate.isActive = isActive;
+
       await userToUpdate.save(); // guardar cambios
 
       res.status(202).json({ message: "User updated successfully" });

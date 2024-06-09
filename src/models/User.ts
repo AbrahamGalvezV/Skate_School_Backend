@@ -9,7 +9,6 @@ import {
 } from "typeorm";
 import { Role } from "./Role";
 import { Appointment } from "./Appointment";
-import { Modifications } from "./Modifications";
 
 //----------------------------------------------------------------
 
@@ -36,8 +35,20 @@ export class User extends BaseEntity {
   @Column({ name: "role_id" })
   roleId!: number;
 
+  @Column({ default: "src/assets/img/air.jpg" })
+  background!: string;
 
-  
+  @Column({ default: "rgb(0, 0, 0)" })
+  backgroundColor!: string;
+
+  @Column({ default: "rgb(0, 198, 165)" })
+  fontColor!: string;
+
+  @Column({ default: "rgb(246, 223, 207)" })
+  fontColorText!: string;
+
+  @Column({ default: "rgb(0, 198, 165)" })
+  fontColorButton!: string;
 
   // Relation: User {0,1,2,...}--{1} Role
 
@@ -49,7 +60,4 @@ export class User extends BaseEntity {
 
   @OneToMany(() => Appointment, (appointment) => appointment.client)
   appointments?: Appointment[];
-
-
-
 }
